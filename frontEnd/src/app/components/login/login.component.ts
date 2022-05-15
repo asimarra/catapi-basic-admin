@@ -1,0 +1,55 @@
+import { Component, OnInit } from '@angular/core';
+
+import { AuthService } from '../../services/auth.service';
+import { TokenStorageService } from '../../services/token-storage.service';
+import { NotifyService } from '../../services/notify.service';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+
+  form: any = {
+    username: null,
+    password: null
+  };
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  username = '';
+  roles: string[] = [];
+
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private notifyService: NotifyService) { }
+
+  ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.username = this.tokenStorage.getUser().basicData.username;
+    }
+  }
+
+  onSubmit(): void {
+    const { username, password } = this.form;
+    this.authService.login(username, password).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.username = data.basicData.username;
+        this.notifyService.login(data.basicData.idUser, data.basicData.idProfile);
+        this.reloadPage();
+      },
+      err => {
+        this.errorMessage = err.error.message || 'User or password is wrong!';
+        this.isLoginFailed = true;
+      }
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
+}

@@ -1,0 +1,7 @@
+NOVE_ENVIRONMENT = 'development'
+API_PORT = 3000
+SOCKET_PORT = 5000
+JWT_SECRET = 'secret-key'
+
+POSTGRES_URL='tcp://user:password@host/db'
+REDIS_URL='redis://username:password@host:port'
