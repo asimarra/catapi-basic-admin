@@ -18,13 +18,13 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post(`${baseApiUrl}/auth/signin`, {
+    return this.http.post(`${baseApiUrl}/auth/login`, {
       username,
       password
     }, httpOptions);
   }
 
   register(userData: IUserBasicData): Observable<any> {
-    return this.http.post(`${baseApiUrl}/auth/signup`, userData, httpOptions);
+    return this.http.post(`${baseApiUrl}/auth/register`, userData, httpOptions);
   }
 }

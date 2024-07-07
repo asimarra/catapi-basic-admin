@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { NotifyService } from './services/notify.service';
 import { TokenStorageService } from './services/token-storage.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class AppComponent {
   showModeratorBoard = false;
   username?: string;
 
-  constructor(private notifyService: NotifyService, private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -27,10 +26,6 @@ export class AppComponent {
   }
 
   logout(): void {
-    const userData = this.tokenStorageService.getUser();
-    if (userData) {
-      this.notifyService.logout(userData.basicData.idUser);
-    }
     this.tokenStorageService.signOut();
     window.location.reload();
   }
