@@ -10,11 +10,9 @@ import { IUserBasicData } from '../../interfaces/IUsers';
 export class RegisterComponent implements OnInit {
 
   form: IUserBasicData = {
-    dni: 0,
+    id: 0,
     name: '',
-    lastName: '',
     email: '',
-    username: '',
     password: ''
   };
   isSuccessful = false;

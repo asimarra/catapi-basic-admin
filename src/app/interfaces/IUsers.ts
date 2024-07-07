@@ -1,8 +1,6 @@
 export interface IUserBasicData {
-    dni: number,
+    id: number,
     name: string,
-    lastName: string,
     email: string,
-    username: string,
     password: string
 };

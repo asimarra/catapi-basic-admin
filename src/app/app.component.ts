@@ -12,7 +12,7 @@ export class AppComponent {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
-  username?: string;
+  name?: string;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
@@ -20,8 +20,8 @@ export class AppComponent {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser().basicData;
-      this.username = user.username;
+      const user = this.tokenStorageService.getUser().userData;
+      this.name = user.name;
     }
   }
 

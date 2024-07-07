@@ -37,8 +37,8 @@ export class TokenStorageService {
 
   public getIdUserAndIdProfile(): any {
     const user = this.getUser();
-    if (user && user.basicData) {
-      return { idUser: user.basicData.idUser, idProfile: user.basicData.idProfile }
+    if (user && user.userData) {
+      return { idUser: user.userData.idUser, idProfile: user.userData.idProfile }
     }
 
     return null

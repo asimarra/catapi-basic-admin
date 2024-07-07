@@ -2,13 +2,12 @@
   <div class="card card-container">
     <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
     <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <!--Username-->
+      <!--Email-->
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
-          #username="ngModel" />
-        <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
-          Username is required!
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="form.email" email required #email="ngModel" />
+        <div class="alert alert-danger" role="alert" *ngIf="email.errors && f.submitted">
+          Email is required!
         </div>
       </div>
 
@@ -36,7 +35,7 @@
       </div>
     </form>
     <div class="alert alert-success" *ngIf="isLoggedIn">
-      Logged in as {{ username }}
+      Logged in as {{ email }}
     </div>
   </div>
 </div>
