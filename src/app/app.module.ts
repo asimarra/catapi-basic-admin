@@ -16,7 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
-import { PanelComponent } from './components/panel/panel.component';
+import { CatComponent } from './components/cat/cat.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { PanelComponent } from './components/panel/panel.component';
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
-    PanelComponent
+    CatComponent
   ],
   imports: [
     BrowserModule,
