@@ -1,1 +1,62 @@
-<p>Cat Component Works!</p>
+<div class="container">
+    <header class="jumbotron">
+        <h3>
+            <strong>Cat</strong> information filtering by Breed
+        </h3>
+    </header>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+                <label for="breed">Breed</label>
+                <select class="form-select form-select-sm" id="breed" name="breed" [(ngModel)]="selectedBreed"
+                    (change)="onBreedChange($event)">
+                    <option *ngFor="let breed of breeds" [value]="breed.id">{{breed.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-3 col-xs-12">
+                <div id="carouselCatImages" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" *ngIf="breedImage">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <img [src]="breedImage.url" class="d-block w-100" [alt]="breedImage.id">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselCatImages"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselCatImages"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-9 col-xs-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Origin</th>
+                            <th scope="col">Temperament</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="breedData">
+                            <th scope="row">{{breedData.id}}</th>
+                            <td>{{breedData.name}}</td>
+                            <td>{{breedData.description}}</td>
+                            <td>{{breedData.origin}}</td>
+                            <td>{{breedData.temperament}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
