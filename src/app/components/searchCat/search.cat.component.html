@@ -1,0 +1,51 @@
+<div class="container">
+    <header class="jumbotron">
+        <h3>
+            <strong>Search</strong> by Cat's Breed
+        </h3>
+    </header>
+    <div class="row">
+        <div class="col-md-6 col-xs-6">
+            <div class="form-group">
+                <label for="breed">Breed's Name</label>
+                <input type="text" class="form-control" id="breed" name="breed" [(ngModel)]="breedName"
+                    (keyup.enter)="searchCatByBreed()">
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-6">
+            <div class="form-group">
+                <button class="btn btn-primary mt-4" (click)="searchCatByBreed()">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 col-xs-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Temperament</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let breed of catBreeds">
+                        <th scope="row">{{breed.id}}</th>
+                        <td>{{breed.name}}</td>
+                        <td>{{breed.description}}</td>
+                        <td>{{breed.origin}}</td>
+                        <td>{{breed.temperament}}</td>
+                    </tr>
+                    <tr *ngIf="loading">
+                        <td colspan="5" class="text-center">Fetching data...</td>
+                    </tr>
+                    <tr *ngIf="catBreeds.length === 0 && !loading">
+                        <td colspan="5" class="text-center">No data found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

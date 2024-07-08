@@ -28,4 +28,8 @@ export class CatService {
   getBreedImage(imageId: string): Observable<any> {
     return this.http.get(`${baseApiUrl}/api/images/${imageId}`, httpOptions);
   }
+
+  searchBreeds(breedName: string, limit: number = 50, page: number = 0): Observable<any> {
+    return this.http.get(`${baseApiUrl}/api/breeds/search?bread_name=${breedName}&limit=${limit}&page=${page}`, httpOptions);
+  }
 }

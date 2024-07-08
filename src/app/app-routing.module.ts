@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CatComponent } from './components/cat/cat.component';
 
 import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { SearchCatComponent } from './components/searchCat/search.cat.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardGuard] },
     { path: 'cat', component: CatComponent, canActivate: [AuthGuardGuard] },
+    { path: 'search-cat', component: SearchCatComponent, canActivate: [AuthGuardGuard] },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

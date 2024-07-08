@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { environment } from 'src/environments/environment';
-
 // routing
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { CatComponent } from './components/cat/cat.component';
+import { SearchCatComponent } from './components/searchCat/search.cat.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,8 @@ import { CatComponent } from './components/cat/cat.component';
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
-    CatComponent
+    CatComponent,
+    SearchCatComponent
   ],
   imports: [
     BrowserModule,

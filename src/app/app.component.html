@@ -7,7 +7,11 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="/cat" class="nav-link" *ngIf="isLoggedIn" routerLink="cat" routerLinkActive="active">Cat</a>
+        <a href="/cat" class="nav-link" *ngIf="isLoggedIn" routerLink="cat" routerLinkActive="active">Cat Breed</a>
+      </li>
+      <li class="nav-item">
+        <a href="/search-cat" class="nav-link" *ngIf="isLoggedIn" routerLink="search-cat"
+          routerLinkActive="active">Search Breed</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
